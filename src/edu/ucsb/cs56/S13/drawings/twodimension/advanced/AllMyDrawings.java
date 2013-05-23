@@ -31,7 +31,7 @@ public class AllMyDrawings
 
     public static void drawPicture1(Graphics2D g2) {
 
-	Face f1 = new Face(10,600,75,75);
+	Face f1 = new Face(50,600,100,100);
 	g2.setColor(Color.CYAN); 
 	g2.draw(f1);
 	
@@ -42,7 +42,7 @@ public class AllMyDrawings
 	f2 = ShapeTransforms.translatedCopyOf(f2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(f2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a face that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	f2 = ShapeTransforms.scaledCopyOfLL(f2,4,4);
 	f2 = ShapeTransforms.translatedCopyOf(f2,150,0);
@@ -61,8 +61,8 @@ public class AllMyDrawings
 	
 	// Draw two faces with cigarette
 	
-		FaceWithCigarette fc1 = new FaceWithCigarette(50,350,40,75);
-		FaceWithCigarette fc2 = new FaceWithCigarette(200,350,200,100);
+		FaceWithCigarette fc1 = new FaceWithCigarette(500,500,100,100);
+		FaceWithCigarette fc2 = new FaceWithCigarette(100,350,200,200);
 	
 		g2.draw(fc1);
 		g2.setColor(new Color(0x8F00FF)); g2.draw(fc2);

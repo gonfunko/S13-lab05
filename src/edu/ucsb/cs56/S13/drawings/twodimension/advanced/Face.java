@@ -45,34 +45,34 @@ public class Face extends GeneralPathWrapper implements Shape
         // way.
         
         double FaceHeight =height;
-        double EyeHeight = 8.1*height;
-        double MouthHeight = 8.5*height;
-		double TeethHeight = 8.5*height;
+        double EyeHeight = y+height/4;
+        double MouthHeight = y+3*height/4;
+	double TeethHeight = y+3*height/4;
 
         
         // Make the shape of face
         
         Rectangle2D.Double face =  new Rectangle2D.Double(x,y,width, FaceHeight);
 	//make two teeth
-	double LTpos = x+width/2-15;
-	double RTpos = x+width/2+5;
-	Rectangle2D.Double leftT =  new Rectangle2D.Double(LTpos,TeethHeight,10,10);
-	Rectangle2D.Double rightT =  new Rectangle2D.Double(RTpos,TeethHeight,10,10);
+	double LTpos = x+width/2-width/6;
+	double RTpos = x+width/2;
+	Rectangle2D.Double leftT =  new Rectangle2D.Double(LTpos,TeethHeight,width/7,width/7);
+	Rectangle2D.Double rightT =  new Rectangle2D.Double(RTpos,TeethHeight,width/7,width/7);
 	//make the shape of mouth
-	double MouthPos=x+width/2-20;
-	Rectangle2D.Double mouth =  new Rectangle2D.Double(MouthPos,MouthHeight,40,20);
+	double MouthPos=x+width/4;
+	Rectangle2D.Double mouth =  new Rectangle2D.Double(MouthPos,MouthHeight,width/2,width/4);
                           
         // make the eyes.   Remember that y goes DOWN the page,
         // so we ADD to y to get a "lower" value on the screen
         
-        Ellipse2D leftEye = new Ellipse2D.Double(x+5 ,EyeHeight,20,20);
+        Ellipse2D leftEye = new Ellipse2D.Double(x+width/6 ,EyeHeight,width/4,width/4);
                                
-        Ellipse2D rightEye = new Ellipse2D.Double(x+width-25,EyeHeight,20,20);
+        Ellipse2D rightEye = new Ellipse2D.Double(x+3*width/4-width/10,EyeHeight,width/4,width/4);
 
         // put the whole face together
        
         GeneralPath wholeFace = this.get();
-        wholeFace.append(face, false);
+	wholeFace.append(face, false);
         wholeFace.append(leftEye, false);
         wholeFace.append(rightEye, false); 
 	wholeFace.append(mouth,false);

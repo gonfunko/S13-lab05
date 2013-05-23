@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.S13.drawings.pconrad.advanced;
+package edu.ucsb.cs56.S13.drawings.twodimension.advanced;
 import java.awt.geom.GeneralPath; // combinations of lines and curves
 import java.awt.geom.AffineTransform; // translation, rotation, scale
 import java.awt.Shape; // general class for shapes
@@ -27,28 +27,27 @@ public class FaceWithCigarette extends Face implements Shape
      */
     public FaceWithCigarette(double x, double y, double width, double height)
     {
-	// construct the basic house shell
+	// construct the basic face shell
 	super(x,y,width,height);
 
 	// get the GeneralPath that we are going to append stuff to
 	GeneralPath gp = this.get();
+       
 	
 
-
-	double w = 0.10 * width;
-	double winTop = y + 0.5 * height;
-	
-
-	Rectangle2D.Double cigarette =
-	    new Rectangle2D.Double(x/2,500 , 30, 5);
+	Rectangle2D.Double cigaretteBody =
+	    new Rectangle2D.Double( x-width/7,y+3*height/4,width/2,width/10);
+	Rectangle2D.Double cigaretteTop =
+	    new Rectangle2D.Double( x-width/7,y+3*height/4,width/10,width/10);
 	
 	
-	// add the windows to the house
+	// add the cigarette to the face
 	// Look up the meaning of the second parameter of append
 	// (Hint--is a method of "GeneralPath")
 
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(cigarette, false);
+        GeneralPath wholeFace = this.get();
+        wholeFace.append(cigaretteBody, false);
+	wholeFace.append(cigaretteTop, false);
        
     }
 
