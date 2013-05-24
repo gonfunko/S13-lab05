@@ -13,13 +13,18 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
    Shape interface.
    
    @author Ryan Halbrook
-   @version for CS56, Spring 13, UCSB
+   @version for CS56 lab 05, Spring 2013
  */
 
 public class Monitor extends GeneralPathWrapper implements Shape
 {
     /**
-       Constructor
+       Creates a Monitor drawing that is ready to be transformed and
+       drawn onto the screen.
+       @param x The x coordinate of the position of the Monitor.
+       @param y The y coordinate of the position of the Monitor.
+       @param width The width of the Monitor.
+       @param height The height of the Monitor.
     **/
     public Monitor(double x, double y, double width, double height)
     {
@@ -37,13 +42,35 @@ public class Monitor extends GeneralPathWrapper implements Shape
 				   y+height-standHeight,
 				   standThickness,
 				   standHeight);
-	this.get().append(border, false);
-	this.get().append(innerBorder, false);
-	this.get().append(stand, false);
+
+        addShapes(new Shape[] {border, innerBorder, stand});
     }
     
+    /**
+       Convenience method to add an array of shapes to the path.
+       @param shapes The shapes to add to the path.
+     */
+    protected void addShapes(Shape[] shapes) {
+	for (Shape s : shapes) this.addShape(s);
+    }
+    
+    /**
+       Convenience method to add any Shape object to the path.  .
+       @param shape The shape to add to the path.
+     */
+    protected void addShape(Shape shape) {
+	this.get().append(shape, false);
+    }
 
-    private void addShape(Shape s) {
-	this.get().append(s, false);
+    /**
+       Convenience method to add rectangles to the path.
+       @param x The x coordinate of the position of the rectangle to add.
+       @param y The y coordinate of the position of the rectangle to add.
+       @param width The width of the rectangle to add.
+       @param height The height of the rectangle to add.
+     */
+    protected void addRect(double x, double y, double width, double height) {
+	Rectangle2D.Double rect = new Rectangle2D.Double(x, y, width, height);
+	this.addShape(rect);
     }
 }
