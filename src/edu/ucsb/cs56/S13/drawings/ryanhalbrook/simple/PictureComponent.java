@@ -16,7 +16,7 @@ import java.awt.geom.GeneralPath; // combinations of lines and curves
    A component that draws a Picture by Phill Conrad
    
    @author Phill Conrad (original drawing)
-   @author YOUR NAME HERE (fixed the snowmans's head)
+   @author Ryan Halbrook (fixed the snowmans's head)
    @version for UCSB CS56, S13
 
    
@@ -93,15 +93,21 @@ public class PictureComponent extends JComponent
              snowManCenterBottomY - bottomRadius * 2 - middleRadius,
              middleRadius
            );
-       g2.draw(snowManMiddleCircle);
 
-       // @@@ ADD CODE HERE TO DRAW THE TOP CIRCLE
-       
-       
-       // @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
+      g2.draw(snowManMiddleCircle);
+
+      Circle snowManTopCircle =
+	   new Circle
+	   (
+	     snowManCenterBottomX,
+	     snowManCenterBottomY - bottomRadius * 2 - middleRadius * 2 - topRadius,
+	     topRadius
+	   );
+
+      g2.draw(snowManTopCircle);
        
        g2.drawString("A house and a snowman, by Phill Conrad", 20,20);
-       g2.drawString("Top of snowman added by YOUR NAME HERE", 20,40);
+       g2.drawString("Top of snowman added by Ryan Halbrook", 20,40);
     }
 
         
