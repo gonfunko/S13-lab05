@@ -20,7 +20,7 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
    @version for CS56, S13, UCSB, 05/24/2013
    
 */
-public class RocketWithFuse extends House implements Shape
+public class RocketWithFuse extends Rocket implements Shape
 {
     /**
      * Constructor for objects of class Rocket
