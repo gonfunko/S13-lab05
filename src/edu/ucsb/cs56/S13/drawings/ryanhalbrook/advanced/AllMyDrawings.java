@@ -140,22 +140,11 @@ public class AllMyDrawings
      */
 
     public static void drawPicture3(Graphics2D g2) {
+	g2.setColor(Color.BLUE);
+	//g2.fillRect(5, 5, 200, 150);
+	Monitor m = new Monitor(5, 5, 250, 150);
+	g2.setColor(Color.BLACK);
+	g2.draw(m);
 	
-	// label the drawing
-	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
-
-	
-	// Draw some coffee cups.
-	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-       
-       g2.setColor(Color.RED);     g2.draw(large);
-       g2.setColor(Color.GREEN);   g2.draw(smallCC);
-       
-       
     }
-    
-
 }
