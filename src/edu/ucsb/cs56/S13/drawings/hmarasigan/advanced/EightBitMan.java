@@ -40,38 +40,39 @@ public class EightBitMan extends GeneralPathWrapper implements Shape
 	double bodyLength = height*.5;
 	double headupperleft=y;
 	double bodyupperleft=y*2;
-	
+	//makes his head
 	Rectangle2D.Double HisHead =
 	    new Rectangle2D.Double(x,headupperleft,headSize,headSize);
-	
+	//makes his body
 	Line2D.Double HisBody =
 	    new Line2D.Double(x+.5*headSize,
 			      y+headSize,
 			      x+.5*headSize,
 			      y+bodyLength+headSize);
+	//makes his left arm
 	Line2D.Double HisLeftArm =
 	    new Line2D.Double(x+.5*headSize,
 			      y+headSize+.1*bodyLength,
 			      x-.25*width,
 			      y+.25*headSize+.5*bodyLength);
-	
+	//makes his right arm
 	Shape HisRightArm = ShapeTransforms.horizontallyFlippedCopyOf(HisLeftArm);
 	HisRightArm = ShapeTransforms.translatedCopyOf(HisRightArm, 
 						     .85*width,
 						     0.0);
-      	Line2D.Double HisLeftLeg =
+      	//makes his left leg
+	Line2D.Double HisLeftLeg =
 	    new Line2D.Double(x+.5*headSize,
 			      y+headSize+bodyLength,
 			      x-.25*width,
 			      y+2*headSize+bodyLength);
 	
-	Shape HisRightLeg = ShapeTransforms.horizontallyFlippedCopyOf(HisLeftLeg);
-	
-	HisRightLeg = ShapeTransforms.translatedCopyOf(HisRightLeg, 
+	//makes his right leg
+	Shape HisRightLeg = ShapeTransforms.horizontallyFlippedCopyOf(HisLeftLeg);		HisRightLeg = ShapeTransforms.translatedCopyOf(HisRightLeg, 
 						     .85*width,
 						       0.0);
 	
-
+	//put togther the body
 	GeneralPath wholeMan=this.get();
 	wholeMan.append(HisHead,false);
 	wholeMan.append(HisBody,false);
