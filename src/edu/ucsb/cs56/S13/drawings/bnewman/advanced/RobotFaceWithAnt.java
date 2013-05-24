@@ -17,7 +17,8 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
 import edu.ucsb.cs56.S13.drawings.bnewman.simple.Circle;
 
 /**
-   A vector drawing of a robot's face that implements
+   A vector drawing of a robot's face with an antenna 
+   that inherits from the RobotFace class implements
    the Shape interface, and so can be drawn, as well as
    rotated, scaled, etc.
       
@@ -29,18 +30,18 @@ public class RobotFaceWithAnt extends RobotFace implements Shape
 {
     public RobotFaceWithAnt(double x, double y, double length)
     {
-	super(x,y, length);
+		super(x,y, length);
 
-	//Add an antenna
-	Line2D.Double antenna = 
-	    new Line2D.Double(x + length/2, y, x + length/2, y - length/4);
+		//Add an antenna
+		Line2D.Double antenna = 
+	    	new Line2D.Double(x + length/2, y, x + length/2, y - length/4);
 
-	Circle antennaBall =
-	    new Circle( (x + length/2), (y - length/4) - length/16 , length/16);
+		Circle antennaBall =
+	    	new Circle( (x + length/2), (y - length/4) - length/16 , length/16);
 
-	GeneralPath entireRobotFace = this.get();
-	entireRobotFace.append(antenna, false);
-	entireRobotFace.append(antennaBall, false);
+		GeneralPath entireRobotFace = this.get();
+		entireRobotFace.append(antenna, false);
+		entireRobotFace.append(antennaBall, false);
 	
     }
 

@@ -28,8 +28,8 @@ public class RobotFace extends GeneralPathWrapper implements Shape
     /**
        Constructor
 
-       @param x x coord of lower left corner of house
-       @param y y coord of lower left corner of house
+       @param x x coord of lower left corner of robot face
+       @param y y coord of lower left corner of robot face
        @param length length of side of the face
      */
     public RobotFace(double x, double y, double length)
@@ -44,33 +44,33 @@ public class RobotFace extends GeneralPathWrapper implements Shape
 
         
         // Make the head 
-	Rectangle2D.Double head = 
-	    new Rectangle2D.Double(x, y, length, length);
+	      Rectangle2D.Double head = 
+	        new Rectangle2D.Double(x, y, length, length);
 
 
-	//Make the eyes
-	Rectangle2D.Double eyeballLeft =
-	    new Rectangle2D.Double(x + length/8, y + length/8, length/4, length/4);
+	      //Make the eyes
+	      Rectangle2D.Double eyeballLeft =
+	        new Rectangle2D.Double(x + length/8, y + length/8, length/4, length/4);
 
-	Rectangle2D.Double eyeballRight =
-	    new Rectangle2D.Double(x + 5*length/8, y + length/8, length/4, length/4);
+	      Rectangle2D.Double eyeballRight =
+	        new Rectangle2D.Double(x + 5*length/8, y + length/8, length/4, length/4);
 
 
-	//Make the mouth
-	Rectangle2D.Double mouth =
-	   new Rectangle2D.Double(x + length/8, y + 5*length/8, 3*length/4, length/4);
+	      //Make the mouth
+	      Rectangle2D.Double mouth =
+	        new Rectangle2D.Double(x + length/8, y + 5*length/8, 3*length/4, length/4);
 
-	//Make the cool screen thingy
-	Line2D.Double screen = 
-	    new Line2D.Double(x + length/8, y + 3*length/4, x + 7*length/8, y + 3*length/4);
+	      //Make a line indicating the mouth is a screen
+	      Line2D.Double screen = 
+	        new Line2D.Double(x + length/8, y + 3*length/4, x + 7*length/8, y + 3*length/4);
 
-	//Put it all together
-	GeneralPath entireRobotFace = this.get();
-	entireRobotFace.append(head, false);
-	entireRobotFace.append(eyeballLeft, false);
+	      //Put it all together
+	      GeneralPath entireRobotFace = this.get();
+	      entireRobotFace.append(head, false);
+	      entireRobotFace.append(eyeballLeft, false);
        	entireRobotFace.append(eyeballRight, false);
-	entireRobotFace.append(mouth, false);
-	entireRobotFace.append(screen, false);
+	      entireRobotFace.append(mouth, false);
+	      entireRobotFace.append(screen, false);
 
            
     }
