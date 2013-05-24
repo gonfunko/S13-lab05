@@ -56,10 +56,12 @@ public class EightBitMan extends GeneralPathWrapper implements Shape
 			      x-.25*width,
 			      y+.25*headSize+.5*bodyLength);
 	//makes his right arm
-	Shape HisRightArm = ShapeTransforms.horizontallyFlippedCopyOf(HisLeftArm);
-	HisRightArm = ShapeTransforms.translatedCopyOf(HisRightArm, 
-						     .85*width,
-						     0.0);
+	Line2D.Double HisRightArm =
+	    new Line2D.Double(x+.5*headSize,
+			      y+headSize+.1*bodyLength,
+			      x+.75*width,
+			      y+.25*headSize+.5*bodyLength);
+
       	//makes his left leg
 	Line2D.Double HisLeftLeg =
 	    new Line2D.Double(x+.5*headSize,
@@ -68,9 +70,12 @@ public class EightBitMan extends GeneralPathWrapper implements Shape
 			      y+2*headSize+bodyLength);
 	
 	//makes his right leg
-	Shape HisRightLeg = ShapeTransforms.horizontallyFlippedCopyOf(HisLeftLeg);		HisRightLeg = ShapeTransforms.translatedCopyOf(HisRightLeg, 
-						     .85*width,
-						       0.0);
+	Line2D.Double HisRightLeg =
+	    new Line2D.Double(x+.5*headSize,
+			      y+headSize+bodyLength,
+			      x+.25*width,
+			      y+2*headSize+bodyLength);
+
 	
 	//put togther the body
 	GeneralPath wholeMan=this.get();
