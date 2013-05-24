@@ -16,8 +16,10 @@ import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
    @version for CS56 lab 05, Spring 2013
  */
 
-public class Monitor extends GeneralPathWrapper implements Shape
-{
+public class Monitor extends GeneralPathWrapper implements Shape {
+    public static final double BEZEL = 10.0;
+    public static final double STAND_HEIGHT = 12.0;
+    
     /**
        Creates a Monitor drawing that is ready to be transformed and
        drawn onto the screen.
@@ -28,13 +30,13 @@ public class Monitor extends GeneralPathWrapper implements Shape
     **/
     public Monitor(double x, double y, double width, double height)
     {
-	double bezelThickness = 10.0;
 	double standThickness = 10.0;
-	double standHeight = 12.0;
+	double standHeight = STAND_HEIGHT;
+	double bezelThickness = BEZEL;
 	Rectangle2D.Double border = new Rectangle2D.Double(x, y, width, height - standHeight);
 	Rectangle2D.Double innerBorder = 
 	    new Rectangle2D.Double(x+bezelThickness,
-				  y+bezelThickness,
+				   y+bezelThickness,
 				  width - 2 * bezelThickness,
 				  height- 2 * bezelThickness - standHeight);
 	Rectangle2D.Double stand =

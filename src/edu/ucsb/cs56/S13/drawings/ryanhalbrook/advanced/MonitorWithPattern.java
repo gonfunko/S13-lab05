@@ -28,8 +28,8 @@ public class MonitorWithPattern extends Monitor implements Shape{
     public MonitorWithPattern(double x, double y, double width, double height) {
 	super(x, y, width, height);
 	int barRes = 10;
-	double bezelThickness = 10.0;
-	double standHeight = 12.0;
+	double bezelThickness = super.BEZEL;
+	double standHeight = super.STAND_HEIGHT;
 	GeneralPath stripes = new GeneralPath();
 	stripes.moveTo(x+bezelThickness, y+bezelThickness);
 	int numRects = (int)((width- 2 * bezelThickness) / barRes);
