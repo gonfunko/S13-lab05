@@ -1,0 +1,45 @@
+package edu.ucsb.cs56.S13.drawings.bnewman.advanced;
+import java.awt.geom.GeneralPath; // combinations of lines and curves
+import java.awt.geom.AffineTransform; // translation, rotation, scale
+import java.awt.Shape; // general class for shapes
+
+// all imports below this line needed if you are implementing Shape
+import java.awt.geom.Point2D; 
+import java.awt.geom.Line2D; 
+import java.awt.geom.Rectangle2D;
+import java.awt.Rectangle;
+import java.awt.geom.PathIterator;
+import java.awt.geom.AffineTransform;
+
+import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
+
+/**
+   A vector drawing of a robot's face that implements
+   the Shape interface, and so can be drawn, as well as
+   rotated, scaled, etc.
+      
+   @author Brandon Newman
+   @version for CS56, Spring 2013, UCSB
+   
+*/
+public class RobotFaceWithAnt extends RobotFace implements Shape
+{
+    public RobotFaceWithAnt(double x, double y, double length)
+    {
+	super(x,y, length);
+
+	//Add an antenna
+	Line 2D.Double antenna = 
+	    new Line2D.Double(x + length/4, y, x + length/4, y - length/4);
+
+	Ellipse 2D.Double antennaBall =
+	    new Line2D.Double(length/8, length/8, x + 3*length/8, y - 3*length/8);
+
+	GeneralPath entireRobotFace = this.get();
+	entireRobotFace.append(antenna, false);
+	entireRobotFace.append(antennaBall, false);
+	
+    }
+
+}
